@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Production & Cinematography Ghana | Footage Portfolio - eLPi Studios</title>
+    <meta name="description"
+        content="Watch eLPi Studios' video production and cinematography portfolio: event coverage, adverts, promos and documentary footage shot in Sunyani, Kasoa and across Ghana.">
+    <meta name="keywords"
+        content="video production Ghana, cinematography Sunyani, event videography Ghana, advert production Ghana, promo video Kasoa, eLPi Studios videos">
+    <meta name="author" content="eLPi Studios">
+    <meta name="robots" content="index, follow, max-video-preview:-1, max-image-preview:large">
+    <link rel="canonical" href="https://studios.elpyron.com.com/videos.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="eLPi Studios">
+    <meta property="og:url" content="https://studios.elpyron.com.com/videos.html">
+    <meta property="og:title" content="Experience Videos | eLPi Studios">
+    <meta property="og:description"
+        content="Cinematography, event coverage, adverts and promo footage by eLPi Studios, Ghana.">
+    <meta property="og:image" content="https://studios.elpyron.com.com/images/cinematography.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Experience Videos | eLPi Studios">
+    <meta name="twitter:description"
+        content="Cinematography, event coverage, adverts and promo footage by eLPi Studios, Ghana.">
+    <meta name="twitter:image" content="https://studios.elpyron.com.com/images/cinematography.jpg">
+
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./media.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "name": "Experience Videos - eLPi Studios",
+          "description": "Video production and cinematography portfolio by eLPi Studios, Ghana.",
+          "url": "https://studios.elpyron.com.com/videos.html",
+          "isPartOf": { "@type": "WebSite", "name": "eLPi Studios", "url": "https://studios.elpyron.com.com/" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://studios.elpyron.com.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Experience Videos", "item": "https://studios.elpyron.com.com/videos.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-full max-w-xl px-4 md:px-6" aria-label="Main">
+        <div class="glass-nav flex items-center justify-between w-full px-4 md:px-5 py-3 shadow-2xl">
+            <a href="./" aria-label="eLPi Studios home"><img src="./logo.png" alt="eLPi Studios Logo"
+                    class="h-7 md:h-9"></a>
+            <div
+                class="flex items-center gap-3 md:gap-5 text-[9px] md:text-[10px] tracking-[0.1em] md:tracking-[0.2em] font-bold uppercase">
+                <a href="./gallery.html" class="hover:text-orange-500 transition-colors">Gallery</a>
+                <a href="./motion.html" class="hover:text-orange-500 transition-colors">Motion</a>
+                <a href="./videos.html" class="text-orange-500" aria-current="page">Videos</a>
+                <a href="./contact.html" class="hover:text-orange-500 transition-colors">Contact</a>
+            </div>
+            <div class="w-2 h-2 rounded-full bg-orange-600 animate-pulse"></div>
+        </div>
+    </nav>
+
+    <main class="min-h-[100dvh] py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto w-full">
+            <header class="mb-12 md:mb-16 flex flex-col items-center text-center space-y-8">
+                <a href="./"
+                    class="text-orange-500 hover:text-white transition-colors uppercase text-[10px] font-bold tracking-widest">←
+                    Back to Studio</a>
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85]">
+                    Experience <br /><span class="text-outline">Videos</span><span class="text-orange-600">.</span>
+                </h1>
+                <div class="max-w-xl">
+                    <p class="text-orange-500 uppercase text-[10px] tracking-[0.4em] mb-3 font-bold" id="video-count">0
+                        Videos</p>
+                    <p class="text-gray-400 font-light text-sm md:text-base">
+                        Cinematography, event coverage, adverts and promo footage. Capturing the pulse of institutions
+                        and brands across Ghana.
+                    </p>
+                </div>
+            </header>
+
+            <div id="filters" class="flex flex-wrap justify-center gap-3 mb-10" role="group"
+                aria-label="Filter videos by category"></div>
+
+            <div id="video-grid" class="video-grid"></div>
+            <noscript>
+                <p class="text-center text-gray-400 mt-8">Enable JavaScript to watch our videos, or <a
+                        class="text-orange-500 underline" href="https://wa.me/233532034130">chat with us on
+                        WhatsApp</a>.</p>
+            </noscript>
+
+            <section class="mt-32 whatsapp-section py-7 px-6 rounded-[2rem] border border-white/5 text-center">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4">Need Footage Shot?</h2>
+                <p class="text-gray-400 max-w-sm mx-auto font-light mb-8">Events, adverts, promos, documentaries. Tell
+                    the studio lead what you are planning.</p>
+                <a href="https://wa.me/233532034130?text=Hello%20eLPi%20Studios!%20I'd%20like%20a%20video%20produced."
+                    target="_blank" rel="noopener"
+                    aria-label="Chat with eLPi Studios on WhatsApp about video production"
+                    class="inline-flex items-center gap-4 bg-orange-600 px-10 py-5 rounded-full font-bold uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-all">
+                    Chat with us →
+                </a>
+            </section>
+        </div>
+
+        <footer class="mt-24 pt-12 pb-28 text-center border-t border-white/10">
+            <div class="flex justify-center gap-6 text-[10px] tracking-widest uppercase opacity-60 mb-6">
+                <a href="./motion.html" class="hover:text-orange-500">Experience Motion</a>
+                <a href="./gallery.html" class="hover:text-orange-500">Design Archives</a>
+                <a href="./contact.html" class="hover:text-orange-500">Contact</a>
+            </div>
+            <p class="text-[10px] tracking-widest opacity-40">eLPi Studios &copy; 2026</p>
+        </footer>
+    </main>
+
+    <div id="player-modal" role="dialog" aria-modal="true" aria-labelledby="player-title">
+        <button id="player-close" type="button" onclick="closePlayer()" aria-label="Close video"
+            class="absolute top-6 right-6 md:top-10 md:right-10 text-white/60 hover:text-orange-500 transition-colors z-[210]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-width="1" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="frame">
+            <div id="player-stage"></div>
+            <div class="mt-6 space-y-3">
+                <span id="player-tag" class="text-orange-500 font-mono tracking-widest uppercase text-xs"></span>
+                <h2 id="player-title" class="text-3xl md:text-5xl font-black uppercase tracking-tighter"></h2>
+                <p id="player-desc" class="text-gray-400 font-light max-w-2xl"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/videos-data.js"></script>
+    <script>
+        window.MEDIA_PAGE = { type: 'videos', singular: 'Video', plural: 'Videos', tagPrefix: 'FOOTAGE', listName: 'eLPi Studios Video & Cinematography Work' };
+    </script>
+    <script src="./scripts/media.js"></script>
+</body>
+
+</html>

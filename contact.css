@@ -1,0 +1,77 @@
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+}
+
+.contact-input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    width: 100%;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    color: white;
+    outline: none;
+    appearance: none;
+}
+
+/* Fixed Dropdown Visibility */
+select.contact-input option {
+    background-color: #111;
+    /* Dark background for options */
+    color: white;
+    padding: 10px;
+}
+
+.contact-input:focus {
+    border-color: #ea580c;
+    background: rgba(234, 88, 12, 0.05);
+}
+
+.protocol-step {
+    border-left: 1px solid rgba(234, 88, 12, 0.3);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.protocol-step::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 7px;
+    height: 7px;
+    background: #ea580c;
+    border-radius: 50%;
+}
+
+.text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+}

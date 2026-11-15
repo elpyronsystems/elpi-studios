@@ -1,0 +1,24 @@
+=========================================================================
+
+eLPi Studios Robots Configuration (robots.txt)
+
+Place this file in the root directory of your domain: https://elpistudios.com/robots.txt
+
+=========================================================================
+
+User-agent: *
+Allow: /
+
+Block search engine crawlers from indexing unnecessary URL query parameters (prevents duplicate content issues)
+
+Disallow: /?
+
+Prevent crawling of any potential draft, backup, or development directories you might add later
+
+Disallow: /drafts/
+Disallow: /backup/
+Disallow: /temp/
+
+Let Google and Bing know where to find your XML Sitemap to index your pages faster
+
+Sitemap: https://studios.elpyron.com/sitemap.xml

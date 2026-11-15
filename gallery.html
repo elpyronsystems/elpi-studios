@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./gallery_styles.css">
+
+    <!-- =========================================================================
+     GALLERY PAGE SEO CONFIGURATION (gallery.html)
+     Place these tags inside the <head> section of your gallery / portfolio view.
+     ========================================================================= -->
+
+    <title>Creative Archives | Design & Portfolio Gallery - eLPi Studios</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="description"
+        content="Explore eLPi Studios' curated design archives. A digital showcase of strategic brand assets, high-impact typography, cinematography, and 3D animations engineered in Ghana.">
+    <meta name="keywords"
+        content="eLPi Studios portfolio, graphic design archive, visual gallery Ghana, logo design examples, cinematography portfolio Ghana, digital brand architecture">
+    <meta name="author" content="eLPi Studios">
+    <link rel="canonical" href="https://studios.elpyron.com.com/gallery.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studios.elpyron.com.com/gallery.html">
+    <meta property="og:title" content="Creative Archives & Portfolio | eLPi Studios">
+    <meta property="og:description"
+        content="Immerse yourself in our portfolio of strategic aesthetics, high-caliber layout design, and creative architecture. Built for impact.">
+    <meta property="og:image" content="https://studios.elpyron.com.com/images/hero.png">
+
+    <!-- Twitter Cards -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://studios.elpyron.com.com/gallery.html">
+    <meta property="twitter:title" content="Creative Archives & Portfolio | eLPi Studios">
+    <meta property="twitter:description"
+        content="View the portfolio grid of Ghana's premier creative studio. Experience professional designs, religious branding, advertisements, and more.">
+    <meta property="twitter:image" content="https://studios.elpyron.com.com/images/hero.png">
+
+    <!-- Creative Work Gallery Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "eLPi Studios Creative Archives",
+  "description": "A curated collection of design templates, local branding elements, religious services media layout, and corporate visual design portfolios.",
+  "url": "https://studios.elpyron.com.com/gallery.html",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "eLPi Studios",
+    "url": "https://studios.elpyron.com.com/"
+  },
+  "about": [
+    {
+      "@type": "CreativeWork",
+      "name": "National Independence Design Archive"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Executive Campaign Branding"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Religious Program Layout Media"
+    }
+  ]
+}
+</script>
+
+
+</head>
+
+<body>
+
+    <canvas id="particles-canvas"></canvas>
+    <div class="cursor-outer" id="cursor-outer"></div>
+    <div class="cursor-inner" id="cursor-inner"></div>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-full max-w-xl px-4 md:px-6">
+        <div class="glass-nav flex items-center justify-between w-full px-5 py-3 shadow-2xl">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <a href=".//">
+                    <img src="./logo.png" alt="eLPi Studios Logo" class="h-9 md:h-10">
+                </a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="switchView('home')" id="nav-home"
+                    class="text-[10px] tracking-widest font-bold text-orange-500 transition-colors">eLPi
+                    Studios Archive</button>
+                <!-- <button onclick="switchView('gallery')" id="nav-gallery"
+                    class="text-[10px] uppercase tracking-widest font-bold text-gray-400 hover:text-white transition-colors">Gallery</button> -->
+            </div>
+            <div class="w-2 h-2 rounded-full bg-orange-600 animate-pulse"></div>
+        </div>
+    </nav>
+
+    <!-- Home View -->
+    <main id="view-home" class="view active min-h-[100dvh] items-center justify-center px-6">
+        <div class="text-center relative z-10 py-12">
+            <div
+                class="mb-6 md:mb-8 inline-flex items-center gap-2 px-4 py-1 rounded-full border border-white/10 bg-white/5">
+                <div class="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] tracking-[0.3em] uppercase opacity-80">Now Entering the Creative Engine</span>
+            </div>
+            <h1 class="text-5xl md:text-[10rem] font-black leading-[0.9] tracking-tighter uppercase mb-6">
+                VISUALS <br /> <span class="text-outline">THAT</span> <br /> SPEAK<span class="text-orange-600">.</span>
+            </h1>
+            <button onclick="switchView('gallery')"
+                class="mt-4 md:mt-8 px-10 py-4 bg-orange-600 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all">
+                Enter Gallery
+            </button>
+        </div>
+    </main>
+
+    <!-- Gallery View -->
+    <main id="view-gallery" class="view min-h-[100dvh] py-20 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto w-full">
+            <header class="mb-12 flex flex-col items-center text-center space-y-8">
+                <div class="space-y-4">
+                    <button onclick="switchView('home')"
+                        class="flex items-center justify-center gap-2 text-orange-500 hover:text-white transition-colors uppercase text-[10px] font-bold tracking-widest w-full">
+                        ← Back to Studio
+                    </button>
+                    <h2 class="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85]">Design <br />
+                        Archives<span class="text-orange-600">.</span></h2>
+                </div>
+                <div class="max-w-md">
+                    <p class="text-orange-500 uppercase text-[10px] tracking-[0.4em] mb-3 font-bold" id="gallery-count">
+                        0 Selected Works</p>
+                    <p class="text-gray-400 font-light text-sm md:text-base">A curated index of strategic aesthetics,
+                        typography, and brand architectures.</p>
+                </div>
+            </header>
+
+            <div class="masonry-grid" id="gallery-grid">
+                <!-- Items injected by JS -->
+            </div>
+
+            <!-- New WhatsApp Chat CTA -->
+            <section
+                class="mt-32 whatsapp-section py-7 px-6 rounded-[2rem] border border-white/5 text-center relative overflow-hidden group">
+                <div class="relative z-10 flex flex-col items-center">
+                    <div
+                        class="w-16 h-16 bg-orange-600/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <svg class="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.667.072-1.097-.069-.267-.087-.625-.224-1.054-.393-1.821-.715-3.007-2.571-3.098-2.693-.09-.12-.736-.979-.736-1.848 0-.869.453-1.297.615-1.463.162-.166.353-.209.471-.209.117 0 .235.001.338.005.111.004.259-.042.406.314.155.374.529 1.29.575 1.383.046.092.077.2.015.324-.061.124-.092.202-.185.31-.092.108-.194.24-.277.323-.092.092-.188.192-.081.375.107.182.476.786 1.022 1.272.705.627 1.297.821 1.479.914.182.092.29.077.399-.05.108-.127.462-.539.585-.722.124-.182.247-.154.416-.092.169.062 1.076.508 1.261.6.185.092.308.138.353.216.046.077.046.446-.098.851z" />
+                            <path
+                                d="M12.002 2C6.477 2 2 6.477 2 12.002c0 1.911.536 3.692 1.464 5.207l-1.353 4.93 5.06-1.328A10.003 10.003 0 0012.002 22C17.525 22 22 17.525 22 12.002 22 6.477 17.525 2 12.002 2zm0 18.002c-1.744 0-3.374-.533-4.733-1.444l-.339-.23-2.986.784.8-.2.914-3.14-.249-.395c-.991-1.57-1.517-3.39-1.517-5.3 0-5.515 4.487-10.002 10.002-10.002 5.514 0 10.002 4.487 10.002 10.002 0 5.515-4.488 10.002-10.002 10.002z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4">Direct Channel</h3>
+                    <p class="text-gray-400 max-w-sm mx-auto font-light mb-8">Skip the formalities. Connect directly
+                        with the
+                        studio lead for rapid responses.</p>
+                    <a href="https://wa.me/233532034130?text=Hello%20eLPi%20Studios!%20I'd%20love%20to%20discuss%20initiating%20a%20creative%20project%20with%20you."
+                        target="_blank" rel="noopener"
+                        aria-label="Chat with eLPi Studios on WhatsApp to start a project"
+                        class="inline-flex items-center gap-4 bg-orange-600 px-10 py-5 rounded-full font-bold uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-orange-600/20">
+                        Chat with us
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                <!-- Decorative background elements -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle,rgba(234,88,12,0.03)_0%,transparent_70%)] pointer-events-none">
+                </div>
+            </section>
+
+            <!-- Social Footer -->
+            <footer class="mt-24 text-center border-t border-white/10 pt-20">
+                <h3 class="text-3xl md:text-5xl font-black uppercase mb-10">Connect With The Process</h3>
+                <div class="flex justify-center gap-8 md:gap-12 text-white/30">
+                    <a href="https://web.facebook.com/profile.php?id=61584768260345" target="_blank" rel="noopener"
+                        class="hover:text-orange-500 transition-all"><svg class="w-6 h-6 md:w-8 md:h-8 fill-current"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg></a>
+                    <a href="https://www.instagram.com/elpistudios_official/" target="_blank" rel="noopener"
+                        class="hover:text-orange-500 transition-all"><svg class="w-6 h-6 md:w-8 md:h-8 fill-current"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg></a>
+                    <a href="https://pin.it/ekmThdXKm" target="_blank" rel="noopener"
+                        class="hover:text-orange-500 transition-all"><svg class="w-6 h-6 md:w-8 md:h-8 fill-current"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12.017 0c-6.627 0-12 5.373-12 12 0 5.089 3.176 9.432 7.64 11.177-.103-.944-.195-2.393.04-3.424.212-.927 1.364-5.78 1.364-5.78s-.348-.696-.348-1.724c0-1.615.937-2.82 2.102-2.82 0.99 0 1.468.744 1.468 1.636 0 0.996-.634 2.486-.963 3.864-.273 1.154.577 2.094 1.716 2.094 2.059 0 3.64-2.17 3.64-5.304 0-2.774-1.993-4.712-4.84-4.712-3.297 0-5.232 2.473-5.232 5.029 0 0.996.384 2.064.863 2.643.095.114.108.214.08.33-.087.362-.283 1.155-.321 1.309-.05.204-.165.247-.381.147-1.417-.66-2.301-2.733-2.301-4.405 0-3.586 2.604-6.879 7.514-6.879 3.945 0 7.01 2.81 7.01 6.568 0 3.918-2.471 7.071-5.901 7.071-1.152 0-2.235-.599-2.606-1.307 0 0-.57 2.171-.71 2.706-.258.986-.957 2.221-1.424 2.978 1.117.345 2.302.532 3.53.532 6.627 0 12-5.373 12-12s-5.373-12-12-12z" />
+                        </svg></a>
+                </div>
+                <p class="mt-12 text-[10px] tracking-widest opacity-40 pb-6">eLPi Studios &copy; 2025</p>
+            </footer>
+        </div>
+    </main>
+
+
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <button onclick="closeLightbox()"
+            class="absolute top-8 right-8 md:top-12 md:right-12 text-white/50 hover:text-orange-500 transition-colors z-[210]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-width="1" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="h-full flex items-center justify-center overflow-y-auto pt-16 pb-8">
+            <div class="max-w-6xl w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <img id="lightbox-img" src="" class="w-full h-auto rounded-lg shadow-2xl">
+                <div class="space-y-4 md:space-y-6">
+                    <span class="text-orange-500 font-mono tracking-widest uppercase text-xs md:text-sm"
+                        id="lightbox-tag">FILE: 001</span>
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter" id="lightbox-title">TITLE
+                    </h2>
+                    <!-- <p class="text-lg md:text-xl text-gray-400 font-light leading-relaxed">Strategic visual
+                        communication and brand development for eLPi Studios creative archives.</p>
+                    <button
+                        class="bg-orange-600 px-8 py-4 rounded-full font-bold uppercase text-[10px] tracking-widest hover:bg-white hover:text-black transition-all">Download
+                        Reference</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        /**
+         * EDIT YOUR IMAGES HERE
+         * To add a picture, just add a new object to this list:
+         * { url: "YOUR_IMAGE_LINK", title: "WORK TITLE", category: "BRANDING" }
+         */
+        const galleryData = [
+            { url: "./galleries/alvida_restaurant.png", title: "Restaurant Jotter Design", category: "Branding" },
+            { url: "./galleries/midsem.png", title: "Examination Best Wishes", category: "Student" },
+            { url: "./galleries/cynthia.png", title: "Tertiary Vote Flyer", category: "Student" },
+            { url: "./galleries/happy_birthday_eliakim.png", title: "Eliakim Wedam Kubirizegah Birthday", category: "Executive" },
+            { url: "./galleries/happy_birthday_eliakim1.png", title: "Eliakim Wedam Kubirizegah Birthday", category: "Executive" },
+            { url: "./galleries/alvida_desk_calendar.png", title: "Restaurant Desk Calendar Design", category: "Branding" },
+            { url: "./galleries/nzema_desk_calendar.png", title: "Hotel Desk Calendar Design", category: "Branding" },
+            { url: "./galleries/elijah_quote.png", title: "Modern Quote Design", category: "Adventure" },
+            { url: "./galleries/happyfathers_day.png", title: "National Celebration", category: "Celebration" },
+            { url: "./galleries/prof_appiahene_jotter_mockup.png", title: "Jotter Design", category: "Branding" },
+            { url: "./galleries/independence.png", title: "Ghana National Independence", category: "National" },
+            { url: "./galleries/Hon_Simon_Aworigo_Puda.png", title: "PUDA Conference", category: "Executive" },
+            { url: "./galleries/Hon_Simon_Aworigo.png", title: "Happy New Year", category: "Executive" },
+            { url: "./galleries/DR_Jacob_Paarechuga_Anankware.png", title: "Happy New Year", category: "Executive" },
+            { url: "./galleries/march.png", title: "Welcome to March", category: "Executive" },
+            { url: "./galleries/Hon_Simon_Aworigo1.png", title: "Happy New Year", category: "Executive" },
+            { url: "./galleries/eLPi_Studios_Happy_News_Year.jpg", title: "Happy New Year", category: "Executive" },
+            { url: "./galleries/birthday_thankyou.png", title: "Rev. Thomas A. Bajaba", category: "Birthday" },
+            { url: "./galleries/Global_Help_Foundation_Logo.png", title: "Global Help Foundation Logo", category: "Branding" },
+            { url: "./galleries/DeGift_Beads.png", title: "DeGift Beads", category: "Branding" },
+            { url: "./galleries/Global_Help_Foundation_Orphanage_Outreach.png", title: "Global Help Foundation", category: "General" },
+            { url: "./galleries/Cheetah_Design.jpg", title: "Adventure", category: "Adventure" },
+            { url: "./galleries/Grace_Food_lounge.png", title: "Grace Food Lounge", category: "Branding" },
+            { url: "./galleries/Ambassador_AG_Recover_All_Service.png", title: "Recover All Service", category: "Religious" },
+            { url: "./galleries/exousia.png", title: "Exousia Service", category: "Religious" },
+            { url: "./galleries/Mition_Tech_logo.jpg", title: "Mition Tech", category: "Branding" },
+            { url: "./galleries/Orange_Fish.jpg", title: "Adventure", category: "Adventure" },
+            { url: "./galleries/Transparent_Glass_Sea.jpg", title: "Adventure", category: "Adventure" },
+            { url: "./galleries/yeark_glowing_horns.jpg", title: "Adventure", category: "Adventure" },
+            { url: "./galleries/daddy_birthday.png", title: "Rev. Thomas A. Bajaba", category: "Birthday" },
+            { url: "./galleries/Rev_Daniel_Yeboah_Of_Sureway_Assemblies_Of_God.png", title: "Rev. Daniel Yeboah", category: "Layout" },
+            { url: "./galleries/Rev_Elvis_Agyeman.png", title: "Rev. Elvis Agyeman", category: "Jotter" },
+            { url: "./galleries/Ambassador_Assemblies_Of_God_Night_of_Altars.png", title: "Night of Altars", category: "Religious" },
+            { url: "./galleries/Ambassador_AG_Joint_Service.jpg", title: "Joint Service", category: "Religious" },
+            { url: "./galleries/Last_Days_Army_Prayer_Festival_2025.png", title: "Prayer Festival", category: "Religious" },
+            { url: "./galleries/Last_Days_Army_Kingdom_Culture1.png", title: "Kingdom Culture", category: "Religious" },
+            { url: "./galleries/glorious_clothing.png", title: "Glorious Clothing", category: "Advertisement" },
+            { url: "./galleries/Vyne_beauty_kasoa.png", title: "Vyne Beauty", category: "Advertisement" },
+            { url: "./galleries/Ticia_Sizzle_And_Glaze.png", title: "Ticia Sizzle And Glaze", category: "Advertisement" },
+            { url: "./galleries/Shop_With_Rika.png", title: "Shop With Rika", category: "Advertisement" },
+            { url: "./galleries/Grace_Food_lounge_Message_From_Manager.png", title: "Grace Food Lounge", category: "Advertisement" },
+            { url: "./galleries/grace_coolers.png", title: "Grace Coolers", category: "Advertisement" },
+        ];
+
+        while (galleryData.length < 20) {
+            const i = galleryData.length + 1;
+            galleryData.push({
+                url: `https://picsum.photos/seed/${i + 60}/800/${800 + (i % 4 * 100)}`,
+                title: `Archive Project ${i}`,
+                category: i % 2 === 0 ? "Motion" : "Design"
+            });
+        }
+
+        // --- View Controller ---
+        function switchView(viewName) {
+            const views = document.querySelectorAll('.view');
+            const navHome = document.getElementById('nav-home');
+            const navGallery = document.getElementById('nav-gallery');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            gsap.to('.view.active', {
+                opacity: 0, duration: 0.4, onComplete: () => {
+                    views.forEach(v => v.classList.remove('active'));
+                    const next = document.getElementById(`view-${viewName}`);
+                    next.classList.add('active');
+
+                    if (viewName === 'home') {
+                        navHome.classList.add('text-orange-500'); navHome.classList.remove('text-gray-400');
+                        navGallery.classList.add('text-gray-400'); navGallery.classList.remove('text-orange-500');
+                    } else {
+                        navGallery.classList.add('text-orange-500'); navGallery.classList.remove('text-gray-400');
+                        navHome.classList.add('text-gray-400'); navHome.classList.remove('text-orange-500');
+                    }
+
+                    gsap.fromTo(next, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 });
+                }
+            });
+        }
+
+        // --- Gallery Injection ---
+        function populateGallery() {
+            const grid = document.getElementById('gallery-grid');
+            const counter = document.getElementById('gallery-count');
+            counter.innerText = `${galleryData.length} Selected Works`;
+
+            galleryData.forEach((item, index) => {
+                const element = document.createElement('div');
+                element.className = 'gallery-item group';
+                element.innerHTML = `
+                    <img src="${item.url}" alt="${item.title}" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 md:p-8">
+                        <span class="text-orange-500 font-mono text-[10px] mb-2">${item.category.toUpperCase()}</span>
+                        <h3 class="text-xl md:text-2xl font-black uppercase tracking-tighter">${item.title}</h3>
+                    </div>
+                `;
+                element.onclick = () => openLightbox(item.url, item.title, item.category);
+                grid.appendChild(element);
+            });
+        }
+
+        // --- Lightbox Logic ---
+        function openLightbox(url, title, cat) {
+            const box = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = url;
+            document.getElementById('lightbox-title').innerText = title;
+            document.getElementById('lightbox-tag').innerText = `DESIGN // ${cat.toUpperCase()}`;
+
+            box.style.display = 'block';
+            setTimeout(() => { box.style.opacity = '1'; }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const box = document.getElementById('lightbox');
+            box.style.opacity = '0';
+            setTimeout(() => { box.style.display = 'none'; }, 400);
+            document.body.style.overflow = 'auto';
+        }
+
+        // --- Particles ---
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        class Particle {
+            constructor() { this.init(); }
+            init() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.vx = Math.random() * 0.4 - 0.2;
+                this.vy = Math.random() * 0.4 - 0.2;
+                this.alpha = Math.random() * 0.5;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.init();
+            }
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+
+        // --- Cursor ---
+        const cOuter = document.getElementById('cursor-outer');
+        const cInner = document.getElementById('cursor-inner');
+
+        // Only attach mouse move if it's not a touch device
+        if (window.matchMedia("(hover: hover)").matches) {
+            window.addEventListener('mousemove', (e) => {
+                gsap.to(cOuter, { x: e.clientX - 16, y: e.clientY - 16, duration: 0.15 });
+                gsap.to(cInner, { x: e.clientX - 2, y: e.clientY - 2, duration: 0 });
+            });
+        }
+
+        window.onload = () => {
+            resize();
+            for (let i = 0; i < 100; i++) particles.push(new Particle());
+            animate();
+            populateGallery();
+            gsap.from('h1', { y: 50, opacity: 0, duration: 1.2, ease: "power4.out", delay: 0.5 });
+        };
+        window.onresize = resize;
+
+    </script>
+
+
+</body>
+
+</html>
