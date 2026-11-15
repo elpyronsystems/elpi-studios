@@ -21,4 +21,4 @@ Disallow: /temp/
 
 Let Google and Bing know where to find your XML Sitemap to index your pages faster
 
-Sitemap: https://studios.elpyron.com/sitemap.xml
+Sitemap: https://elpistudios.com/sitemap.xml
